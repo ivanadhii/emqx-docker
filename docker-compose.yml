@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  emqx:
+    image: emqx/emqx:latest
+    container_name: emqx
+    restart: unless-stopped
+    ports:
+      - "1883:1883"      # MQTT TCP
+      - "8883:8883"      # MQTT SSL
+      - "8083:8083"      # MQTT WebSocket
+      - "8084:8084"      # MQTT WebSocket SSL
+      - "18083:18083"    # Dashboard
+    environment:
+      - EMQX_NAME=emqx
+      - EMQX_HOST=node1.emqx.io
+      # Dashboard credentials
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=meltedbrain
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=meltedbrain911
+      # Allow anonymous MQTT connections (no password required)
+      - EMQX_ALLOW_ANONYMOUS=true
+      # Listeners
+      - EMQX_LISTENERS__TCP__DEFAULT__BIND=0.0.0.0:1883
+      - EMQX_LISTENERS__WS__DEFAULT__BIND=0.0.0.0:8083
+    volumes:
+      - emqx-data:/opt/emqx/data
+      - emqx-log:/opt/emqx/log
+    networks:
+      - emqx-network
+    healthcheck:
+      test: ["CMD", "emqx", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  emqx-network:
+    driver: bridge
+
+volumes:
+  emqx-data:
+  emqx-log:

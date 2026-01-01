@@ -1,0 +1,10 @@
+# EMQX Data
+emqx-data/
+emqx-log/
+
+# Docker
+.env
+
+# OS
+.DS_Store
+Thumbs.db
