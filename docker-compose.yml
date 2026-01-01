@@ -15,8 +15,8 @@ services:
       - EMQX_NAME=emqx
       - EMQX_HOST=node1.emqx.io
       # Dashboard credentials
-      - EMQX_DASHBOARD__DEFAULT_USERNAME=meltedbrain
-      - EMQX_DASHBOARD__DEFAULT_PASSWORD=meltedbrain911
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=set-this
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=set-this
       # Allow anonymous MQTT connections (no password required)
       - EMQX_ALLOW_ANONYMOUS=true
       # Listeners

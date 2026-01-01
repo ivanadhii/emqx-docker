@@ -6,8 +6,8 @@ Deployment EMQX menggunakan Docker Compose dengan konfigurasi custom.
 
 - **MQTT Port**: 1883 (TCP), 8083 (WebSocket)
 - **Dashboard**: http://localhost:18083
-- **Dashboard Username**: meltedbrain
-- **Dashboard Password**: meltedbrain911
+- **Dashboard Username**: xxx
+- **Dashboard Password**: xxx
 - **MQTT Authentication**: DISABLED (anonymous allowed, no password required)
 
 ## Cara Deploy
@@ -73,8 +73,8 @@ mosquitto_pub -h localhost -p 1883 -t test/topic -m "Hello EMQX"
 
 Setelah container running, akses dashboard di:
 - URL: http://localhost:18083
-- Username: meltedbrain
-- Password: meltedbrain911
+- Username: xxx
+- Password: xxx
 
 ## Notes
 
