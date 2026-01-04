@@ -19,6 +19,10 @@ services:
       - EMQX_DASHBOARD__DEFAULT_PASSWORD=set-this
       # Allow anonymous MQTT connections (no password required)
       - EMQX_ALLOW_ANONYMOUS=true
+      # Authorization - allow all including wildcard subscriptions
+      - EMQX_AUTHORIZATION__NO_MATCH=allow
+      - EMQX_AUTHORIZATION__DENY_ACTION=ignore
+      - EMQX_AUTHORIZATION__SOURCES=[]
       # Listeners
       - EMQX_LISTENERS__TCP__DEFAULT__BIND=0.0.0.0:1883
       - EMQX_LISTENERS__WS__DEFAULT__BIND=0.0.0.0:8083
